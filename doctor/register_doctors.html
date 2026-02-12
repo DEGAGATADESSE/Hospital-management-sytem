@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Register doctor</title>
+<style type="text/css">
+#div1{
+	position: absolute;
+	border: double;
+	height: 524px;
+	width: 381px;
+	border-radius: 25px;
+	align: right;
+	left: 189px;
+	top: 172px;
+	}
+body {
+	background-image: url(image3.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #D5E2EA;
+}
+#submit{
+	font-size:16px;
+	color:black;
+	}
+#h3{
+	font-size:24px;
+	}
+body,td,th {
+	font-size: 18px;
+}
+.top {
+	font-weight: bold;
+}
+
+a:link {
+	text-decoration: none;
+	color:purple;
+}
+a:visited {
+	text-decoration: none;
+	color:purple;
+}
+a:hover {
+	text-decoration: none;
+	color: #000000;
+}
+a:active {
+	text-decoration: none;
+	color:purple;
+}
+</style>
+
+<script type="text/javascript">
+function formvalidate(){
+	var fname=document.getElementById("fn");
+	var lname=document.getElementById("ln");
+	var uname=document.getElementById("un");
+	var email=document.getElementById("em");
+	var phonenumber=document.getElementById("pn");
+	var password=document.getElementById("ps");
+	var male=document.getElementById("checkbox").checked;
+    var female=document.getElementById("checkbox1").checked;
+	var txt=/^[A-Za-z]+$/;
+	var phon=/^\d{10}/;
+	if(fname.value=="")
+	{
+		alert("please write your name");
+		return false;
+		}
+		if(fname.value.length<="2" & !(fname.value.match(txt)))
+	   {
+		  alert("it is short and numeric");
+		  return false;
+	   }
+	if(fname.value.length<="2")
+		{
+            alert("your firt name is too short");
+			return false;
+			}
+	if(!(fname.value.match(txt)))
+		  {
+		     alert("cannot accept number");
+			 return false;
+				}
+	
+	if(lname.value=="")
+	        {
+		alert("please write last name");
+		return false;
+		}
+	if(lname.value.length<="2" & !(lname.value.match(txt)))
+	     {
+		    alert("it is short and numeric");
+		    return false;
+	     }
+	
+	if(lname.value.length<="2")
+		{
+            alert("your last name is too short");
+			return false;
+			}
+	if(!(lname.value.match(txt)))
+		  {
+		     alert("cannot accept number");
+			 return false;
+				}
+				
+	if(uname.value=="")
+	  {
+		alert("please write username");
+		return false;
+		   }	
+				
+	if(email.value.indexOf("@")<0)
+				{
+            alert("please provide correct e-mail");
+			return false;
+			}
+	if(male==false && female==false){
+			alert("choose gender");
+			return false;
+			}
+	if(phonenumber.value=="")
+	  {
+		alert("please write phone number");
+		return false;
+		   }	
+	if(phonenumber.value.length<"10")
+		{
+            alert("please enter correct length of phone number");
+			return false;
+			}
+	if(phonenumber.value.length>"10")
+		{
+            alert("please enter correct length of phone number");
+			return false;
+			}
+	if(!(phonenumber.value.match(phon)))
+		  {
+		     alert("enter correct phone number");
+			 return false;
+				}
+	if(password.value=="")
+	  {
+		alert("please write password");
+		return false;
+		   }	
+	if(password.value.length<"8")
+		{
+            alert("password need 8 character");
+			return false;
+			}
+				
+	}
+
+</script>
+</head>
+
+<body>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="views.php">BACK</a>
+<p>&nbsp;</p>
+<div id="div1">
+  <form id="form1" name="form1" method="post" action="insert.php">
+    <blockquote>
+      <blockquote>
+        <p>REGISTER NOW
+        </p>
+      </blockquote>
+    </blockquote>
+    <p>
+      <label for="fname">&nbsp;&nbsp;&nbsp;&nbsp;Firstname</label>
+      <input type="text" name="fname" id="fn" placeholder="enter firt name"/>
+    </p>
+    <p>
+      <label for="lname">&nbsp;&nbsp;&nbsp;&nbsp;Lastname</label>
+      <input type="text" name="lname" id="ln" placeholder="enter last name"/>
+</p>
+    <p>
+      <label for="uname">&nbsp;&nbsp;&nbsp;&nbsp;Username</label>
+      <input type="text" name="uname" id="un" placeholder="enter user name"/>
+</p>
+    <p>
+      <label for="email">&nbsp;&nbsp;&nbsp;&nbsp;Email</label>
+      <input type="text" name="email" id="em" placeholder="enter email"/>
+</p>
+    <p><label for="gender">&nbsp;&nbsp;&nbsp;&nbsp;Gender</label></p>
+      <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="checkbox" id="checkbox1" value="female" />
+        <label for="checkbox">&nbsp;&nbsp;Female</label>
+        <BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="checkbox" id="checkbox" value="male" />
+        <label for="checkbox">&nbsp;&nbsp;Male</label>
+      </p>
+      <p>
+        <label for="pnumber">&nbsp;&nbsp;&nbsp;&nbsp;Phonenumber</label>
+        <input type="text" name="pnumber" id="pn" placeholder="enter phone number"/>
+      </p>
+      <p>
+        <label for="pword">&nbsp;&nbsp;&nbsp;&nbsp;Password</label>
+        <input type="password" name="pword" id="ps" placeholder="enter password"/>
+      </p>
+   
+        &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" id="submit" onclick="return formvalidate();" value="submit" />
+  </form>
+</div>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <blockquote>
+            <h3 class="care"><strong>Proud to be part of
+              this new </strong></h3>
+            <blockquote>
+              <h3> <strong><span class="care">CARE NETWORK</span></strong></h3>
+            </blockquote>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Register doctor</title>
+<style type="text/css">
+#div1{
+	position: absolute;
+	border: double;
+	height: 614px;
+	width: 471px;
+	border-radius: 25px;
+	align: right;
+	left: 510px;
+	top: 169px;
+	}
+body {
+	background-image:url(../aaaa.jpg);
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+body,td,th {
+	font-size: 18px;
+}
+</style>
+<script type="text/javascript">
+function formvalidate(){
+	var fname=document.getElementById("fn");
+	var lname=document.getElementById("ln");
+	var email=document.getElementById("em");
+	var phonenumber=document.getElementById("pn");
+	var age=document.getElementById("ag");
+	var weight=document.getElementById("wt");
+	var symptom=document.getElementById("sm");
+	var male=document.getElementById("checkbox").checked;
+    var female=document.getElementById("checkbox1").checked;
+
+	var txt=/^[A-Za-z]+$/;
+	var phon=/^\d{10}/;
+	var agg=/^\d{1}/;
+	var weig=/^\d{1}/;
+	if(fname.value=="")
+	{
+		alert("please write your name");
+		return false;
+		}
+		if(fname.value.length<="2" & !(fname.value.match(txt)))
+	   {
+		  alert("your first name is short and numeric");
+		  return false;
+	   }
+	if(fname.value.length<="2")
+		{
+            alert("your firt name is too short");
+			return false;
+			}
+	if(!(fname.value.match(txt)))
+		  {
+		     alert(" first name cannot accept number");
+			 return false;
+				}
+	
+	if(lname.value=="")
+	        {
+		alert("please write last name");
+		return false;
+		}
+	if(lname.value.length<="2" & !(lname.value.match(txt)))
+	     {
+		    alert("last name is short and numeric");
+		    return false;
+	     }
+	
+	if(lname.value.length<="2")
+		{
+            alert("your last name is too short");
+			return false;
+			}
+	if(!(lname.value.match(txt)))
+		  {
+		     alert("last name cannot accept number");
+			 return false;
+				}
+				
+	if(email.value.indexOf("@")<0)
+				{
+            alert("please provide correct e-mail");
+			return false;
+			}
+	if(male==false && female==false){
+			alert("choose gender");
+			return false;
+			}
+	if(phonenumber.value=="")
+	  {
+		alert("please write phone number");
+		return false;
+		   }	
+	if(phonenumber.value.length<"10")
+		{
+            alert("please enter correct length of phone number");
+			return false;
+			}
+	if(phonenumber.value.length>"10")
+		{
+            alert("please enter correct length of phone number");
+			return false;
+			}
+	if(!(phonenumber.value.match(phon)))
+		  {
+		     alert("enter correct phone number");
+			 return false;
+				}
+	if(age.value=="")
+	        {
+		alert("please enter your age");
+		return false;
+		    }
+	if(!(age.value.match(agg)))
+		  {
+		     alert("age is not text");
+			 return false;
+				}
+	if(weight.value=="")
+	        {
+		alert("please enter your weight");
+		return false;
+		    }
+	if(!(weight.value.match(weig)))
+		  {
+		     alert("weight is not text");
+			 return false;
+				}
+	if(symptom.value=="")
+	        {
+		alert("please write your symptom");
+		return false;
+		}		
+	
+   }
+   </script>
+
+</head>
+
+<body>
+<div id="div1">
+  <form id="form1" name="form1" method="post" action="insert1.php">
+    <blockquote>
+      <p>&nbsp;</p>
+      <blockquote>
+        <p><strong>APPOINTMENT BOOK
+        </strong></p>
+      </blockquote>
+    </blockquote>
+    <p>
+      <label for="fname">&nbsp;<br />
+      &nbsp;<strong>Firstname</strong></label>
+      <strong>
+      <input type="text" name="fname" id="fn" placeholder="enter firt name"/>
+      </strong></p>
+    <p>
+      <label for="lname">&nbsp;<strong>&nbsp;Lastname</strong></label>
+      <input type="text" name="lname" id="ln" placeholder="enter last name"/>
+</p>
+    
+    <p>
+      <label for="email">&nbsp;&nbsp;<strong>Email</strong></label>
+      <strong>
+      <input type="text" name="email" id="em" placeholder="enter email"/>
+    </strong>    </p>
+    <p><label for="gender">&nbsp;&nbsp;<strong>Gender</strong></label>
+    </p>
+      <p>
+        &nbsp;&nbsp;<input type="radio" name="checkbox" id="checkbox1" value="female" />
+        <label for="checkbox">Female</label>
+        <BR>
+       &nbsp;&nbsp; <input type="radio" name="checkbox" id="checkbox" value="male" />
+        <label for="checkbox">Male</label>
+      </p>
+      <p>
+        <label for="pnumber">&nbsp;&nbsp;<strong>Phonenumber</strong></label>
+        <input type="text" name="pnumber" id="pn" placeholder="enter phone number"/>
+      </p>
+  <p>
+        <label for="age">&nbsp;&nbsp;<strong>Age</strong></label>
+        <input name="age" type="text" id="ag" size="9" placeholder="enter your age"/>
+      </p>
+     <p>
+        <label for="weight">&nbsp;&nbsp;<strong>Weight</strong></label>
+        <input name="weight" type="text" id="wt" size="9" placeholder="enter your weight"/>
+     </p>
+     <p>
+      <label for="symptom">&nbsp;&nbsp;<strong>Symptom</strong></label>
+       <input type="text" name="symptom" id="sm" placeholder="enter your symptom"/>
+     </p>
+     
+       <p align="left">
+         &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" id="submit" onclick="return formvalidate();" value="submit" />
+       </p>
+     
+  </form>
+</div>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <blockquote>
+            <h3 class="care">&nbsp;</h3>
+            <blockquote>
+              <blockquote>
+                <blockquote>
+                  <blockquote>
+                    <blockquote>
+                      <blockquote>
+                        <blockquote>
+                          <blockquote>
+                            <blockquote>
+                              <h3 class="care"><strong>Proud to be part of
+                              this new </strong></h3>
+                              <blockquote>
+                                <h3> <strong><span class="care">CARE NETWORK</span></strong></h3>
+                              </blockquote>
+                            </blockquote>
+                          </blockquote>
+                        </blockquote>
+                      </blockquote>
+                    </blockquote>
+                  </blockquote>
+                </blockquote>
+              </blockquote>
+            </blockquote>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+</body>
+</html>
